@@ -1,0 +1,55 @@
+<div class="container">
+
+    <h1 class="movie-header">Popular Movies</h1>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon3">Search for a movie...</span>
+      </div>
+      <input type="text" class="form-control" id="basic-url"  (keyup)="searchMovie($event)" aria-describedby="basic-addon3">
+    </div>
+    <div class="movie-container row">
+      <div *ngFor="let data of dataMovies">
+        <div class="col-sm">
+            <a [routerLink]="['/movie/', data.id]">
+              <img class="card-img-top" height="100%" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2{{data.poster_path}}" alt="Card image cap">
+            </a>
+          <div class="movie-container-description">
+            <p>
+              <a [routerLink]="['/movie/', data.id]"><strong>{{data.title}}</strong> </a>
+            </p>
+            <p class="movie-container-description-line">
+              <i class="fas fa-film"></i> {{data.release_date}}
+            </p>
+            <p class="movie-container-description-line">
+              <i class="fas fa-fire"></i> {{data.popularity}} views
+            </p>
+            <p class="movie-container-description-line">
+              <i class="fas fa-language"></i> {{data.original_language}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="movie-container-paginate">
+      <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+          <li class="page-item">
+            <a class="page-link" aria-label="Previous" (click)="last_page()">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+          <li class="page-item" *ngFor="let pag of pages">
+            <a class="page-link" (click)="next_page()">{{pag}}</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" aria-label="Next" (click)="next_page()">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </div>

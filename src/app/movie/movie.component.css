@@ -1,0 +1,32 @@
+.movie {
+  margin: 0;
+  padding: 2em;
+  display: grid;
+  /*grid-template: 100px 1fr /  200px 1fr;*/
+  grid-template: 1fr / 100%;
+  grid-template-areas: "image" 
+            "tittle"
+            "description";
+}
+
+.movie-image {
+  grid-area: image;
+}
+
+.movie-tittle {
+  color: wheat;
+  grid-area: tittle;
+}
+
+.movie-description {
+  margin-top: 1em;
+  color: rgba(255, 255, 255, .6);
+  grid-area: description;
+}
+
+@media only screen and (min-width: 500px) {
+  .movie {
+    grid-template: repeat(2, 1fr) / 50% 50%;
+    grid-template-areas: "image tittle" "description description";
+  }
+}

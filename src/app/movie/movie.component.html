@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="movie">
+    <a [routerLink]="['/']">
+      <button type="button" class="btn btn-light">Go Back</button>
+    </a>
+    <div class="movie-image">
+      <img class="movie-container-image" src="{{posterUrl}}" alt="Card image cap">
+    </div>
+    <div class="movie-tittle">
+      <h1>{{movie.title}}</h1>
+      <h4>{{movie.original_title}}</h4>
+    </div>
+    <div class="movie-description">
+      <p>Release <i class="far fa-calendar-check"></i> {{movie.release_date | date:'fullDate' }}</p>
+      <p>{{movie.overview}}</p>
+    </div>
+
+  </div>
+</div>

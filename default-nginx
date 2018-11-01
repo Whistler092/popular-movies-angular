@@ -1,0 +1,11 @@
+
+server {
+    listen  80;
+    index index.html index.htm;
+    server_name test.example.com;
+
+    location / {
+        root /usr/src/app/dist/movies/;
+    }
+
+}
